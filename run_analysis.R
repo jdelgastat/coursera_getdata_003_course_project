@@ -15,9 +15,9 @@ labels_actv_y <- labels_actv_y[,-1]
 label_x <- rbind(x_test, x_train)
 colnames(label_x) <- features[,2]
 alldata <- cbind(subject_test_train, labels_actv_y, label_x)
-band <- c("mean\\(\\)", "std\\(\\)") #Matches mean and std
+band <- c("mean\\(\\)", "std\\(\\)")
 band0 <- grep(paste(band,collapse="|"), features[,2], value=FALSE)
-band0 <- band0+2 #To compensate for the 2 new extra rows in the beginning
+band0 <- band0+2
 DataMeanStd <- alldata[,c(1,2,band0)]
 write.table(DataMeanStd, file = "b.txt" , sep = ";")
 library("reshape2")
